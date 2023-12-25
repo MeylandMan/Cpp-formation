@@ -1,12 +1,34 @@
 #include <iostream> //iostream = in-out stream
+#include <vector>
 
-//Creating a console is way different from C#
-//std = standard; cout = console? out
+//Namespaces can't be defined in the main function
 
-//Instead of using dot for referencing a variable in a specific class, we use ::
+namespace first {
+    int x = 1;
 
-int main()
-{
-    std::cout << "Hello World!" << std::endl;
-    std::cout << "Welcome to the console." << std::endl;
+}
+/*
+        TypeDef = reserverd keyword used to create an additional name
+        (alias) for another data type
+        Helps with readability and reduces typos
+*/
+
+typedef std::vector<std::pair<std::string, int>> pairlist_t; // Adding _t at the end of the variable name is just a convention
+
+//There's 2 way for writing typedef
+//  typedef std::string text_t;
+using  text_t = std::string;
+
+int main() {
+    using namespace first;
+    int x = 0;
+    std::cout << "The Main x : " << x << std::endl;
+    std::cout << "The namespace x : " << first::x << std::endl;
+
+    
+
+    text_t str = "Yo mama";
+    pairlist_t pairlist;
+
+    return 0;
 }
